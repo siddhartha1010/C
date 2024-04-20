@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/png" href="logo.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,900;1,200;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Portfolio</title>
+    <script defer src="function.js"></script>
+    <script defer src="autotyping.js"></script>
+
+
+    <!-- yesma loader ko lagi lekheko xa -->
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden; /* Hide the scroll during the loading period */
+      }
+
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        z-index: 9999;
+      }
+
+      .loader {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .spinnerContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .spinner {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        border: 4px solid #0000;
+        border-radius: 50%;
+        border-right-color: #ffbb00;
+        animation: tri-spinner 1s infinite linear;
+      }
+
+      .spinner::before,
+      .spinner::after {
+        content: "";
+        grid-area: 1/1;
+        margin: 2px;
+        border: inherit;
+        border-radius: 50%;
+        animation: tri-spinner 2s infinite;
+      }
+
+      .spinner::after {
+        margin: 8px;
+        animation-duration: 3s;
+      }
+
+      @keyframes tri-spinner {
+        100% {
+          transform: rotate(1turn);
+        }
+      }
+
+      .loader {
+        color: #4a4a4a;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 25px;
+        box-sizing: content-box;
+        height: 40px;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+      }
+
+      .words {
+        overflow: hidden;
+      }
+
+      .word {
+        display: block;
+        height: 100%;
+        padding-left: 6px;
+        color: #ffbb00;
+        animation: cycle-words 5s infinite;
+      }
+
+      @keyframes cycle-words {
+        10% {
+          transform: translateY(-105%);
+        }
+
+        25% {
+          transform: translateY(-100%);
+        }
+
+        35% {
+          transform: translateY(-205%);
+        }
+
+        50% {
+          transform: translateY(-200%);
+        }
+
+        60% {
+          transform: translateY(-305%);
+        }
+
+        75% {
+          transform: translateY(-300%);
+        }
+
+        85% {
+          transform: translateY(-405%);
+        }
+
+        100% {
+          transform: translateY(-400%);
+        }
+      }
+
+      @layer utilities {
+    .hover-scale {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.1);
+    }
+  }
+      
+    </style>
+  </head>
+  <body>
+
+
+    <!-- ....................... -->
+
+    <!-- loader suru vayo -->
+    <div class="loader-container" id="loaderContainer">
+      <div class="loader">
+        <div class="spinnerContainer">
+          <div class="spinner"></div>
+          <div class="words">
+            <span class="word">...........</span>
+            <span class="word">Hello World</span>
+            <span class="word">Welcome,</span>
+            <span class="word">I am glad </span>
+            <span class="word">to have you here🎉😁</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- loader sakyo -->
+
+<!-- navbar ko lagi -->
+    <!-- ................................ -->
+    <header id="head" class="h-screen bg-[#ffffff]">
+      <nav
+        class="w-full md:h-20 bg-white flex justify-between px-7 md:px-6 border-b-2 border-gray-300 shadow-md fixed top-0 left-0 z-50"
+      >
+        <div class="text-2xl text-[#787b80] font-bold py-4">
+          <span class="text-4xl text-[#0f141e] font-bold">S</span>IDDHARTHA
+        </div>
+            <div class="md:flex hidden justify-between cursor-pointer px-2 py-2"> 
+          <ul class="nav__links mx-4 my-4 flex" >
+            <li class="nav__item mx-4">
+              <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#head">Home</a>
+            </li>
+            <li class="nav__item mx-4">
+              <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#intro">About</a>
+            </li>
+            <li class="nav__item mx-4">
+              <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#services">Projects</a>
+            </li>
+            <li class="nav__item mx-4">
+              <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#form">Contact</a>
+            </li>
+          </ul>
+          </div>
+
+      
+
+        <div class="md:hidden flex justify-end">
+          <a
+            class="text-4xl font-extrabold py-2 px-2 z-40"
+            href="#"
+            id="hamburger"
+            >&#8801;</a
+          >
+        </div>
+        <div
+        class="hidden bg-[#787b80] absolute right-0 top-4 w-40 p-10 rounded-b-3xl space-y-4 text-black text-center z-20"
+        id="menu"
+      >
+      <ul  id="smallnav" >
+        <li class="nav__item my-4">
+          <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#head">Home</a>
+        </li>
+        <li class="nav__item my-4">
+          <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#intro">About</a>
+        </li>
+        <li class="nav__item my-4">
+          <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#services">Projects</a>
+        </li>
+        <li class="nav__item my-4">
+          <a class="nav__link text-[#0f141e] text-lg font-bold hover:text-[#787b80]" href="#form">Contact</a>
+        </li>
+      </ul>
+        
+      </div>
+     
+      
+      </nav>
+
+      <!-- nav sakyo -->
+     
+      <!-- landing page -->
+      <img
+        class="absolute top-4 bottom-11 right-0 lg:left-0 mx-auto h-full object-cover mix-blend-multiply"
+        src="./image.jpg"
+        alt=""
+      />
+    
+
+      <div
+        class="absolute top-1/3 text-5 text-xl sm:left-10 sm:test:4xl md:left-10 md:text-4xl lg:left-45 lg:text-7xl font-bold"
+      >
+        <span class="text-[#0f141e]">Hello I am, </span>
+        <p id="text" class="text-[#787b80]">A Developer</p>
+      </div>
+
+      <div
+        class="hidden lg:flex flex-col gap-5 rounded-md shadow-2xl absolute top-0 bottom-0 m-auto right-10 bg-white dark:bg-slate-900 dark:shadow-slate-800 p-6 h-fit w-1/3"
+      >
+        <h1 class="text-4xl font-bold text-[#0f141e]">
+          Greetings, I'm Siddhartha
+        </h1>
+        <p class="text-[#0f141e]">
+          Explore my virtual sanctuary, a fusion where hard work intertwines
+          with artistic expression.
+        </p>
+        <button
+          class="downloadButtons cursor-pointer group relative flex gap-1.5 px-4 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md w-1/3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            height="24px"
+            width="24px"
+          >
+            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              id="SVGRepo_tracerCarrier"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g id="Interface / Download">
+                <path
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  stroke="#f1f1f1"
+                  d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
+                  id="Vector"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          Résumé
+          <div
+            class="absolute opacity-0 -bottom-full rounded-md py-2 px-2 bg-black bg-opacity-70 left-1/2 -translate-x-1/2 group-hover:opacity-100 transition-opacity shadow-lg"
+          >
+            Download
+          </div>
+        </button>
+      </div>
+      <div class="downloadButton absolute bottom-4 left-4 lg:hidden">
+        <button
+          id="docsmall"
+          class="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            height="24px"
+            width="24px"
+          >
+            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              id="SVGRepo_tracerCarrier"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g id="Interface / Download">
+                <path
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  stroke="#f1f1f1"
+                  d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
+                  id="Vector"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          Download CV
+          <div
+            class="absolute opacity-0 -bottom-full rounded-md py-2 px-2 bg-black bg-opacity-70 left-1/2 -translate-x-1/2 group-hover:opacity-100 transition-opacity shadow-lg"
+          >
+            Download
+          </div>
+        </button>
+      </div>
+    </header>
+
+
+
+    <!-- into section -->
+
+    <div class="border-b py-10" id="intro"></div>
+    <div class="px-20">
+      <div class="container mx-auto py-40 flex flex-col lg:flex-row items-center gap-10">
+        <div class="hidden lg:flex lg:w-1/2">
+          <div class="h-full w-full rounded-full bg-black flex items-center justify-center overflow-hidden hover-scale" style="height: 30rem; width: 30rem;">
+            <img class="px-8" src="./aboutme.png" alt="aboutme.png">
+          </div>
+          
+        </div>
+        <div class="flex-1 my-auto flex flex-col gap-3">
+          <h1 class="font-bold text-[#0f141e] text-2xl">ABOUT ME</h1>
+          <p class="text-[#0f141e]">
+            Hello there! I'm Siddhartha Raut, from the picturesque landscapes of
+            Nepal. Currently on the verge of completing my computer engineering
+            degree, I've immersed myself in the dynamic world of technology.
+            Throughout my academic journey, I've gained invaluable insights that
+            have not only broadened my perspective but also fueled my enthusiasm
+            for both hardware and software. This beautiful journey has not just
+            been about acquiring knowledge but also about a continuous process
+            of learning and adapting to new technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="border-b"></div>
+
+    
+
+    <!-- project ko bareama lekhum aaba -->
+    <div id="services" class="dark:bg-slate-900 py-20">
+      <div class="container mx-auto">
+        <!-- top -->
+        <div class="flex flex-col gap-3 items-center">
+          <h1 class="font-bold text-[#0f141e] text-2xl">PROJECTS</h1>
+          <h1 class="text-xl text-[#0f141e]">What Skills Have I Cultivated?</h1>
+          <p class="w-1/2 text-center text-[#787b80]">
+            I've focused on backend development,strengthening my skills mainly
+            in Node.js and partially in Django.Venturing into Machine Learning
+            and AWS, I earned the AWS Cloud Practitioner certificate and am
+            currently preparing for the next level.
+          </p>
+        </div>
+        <div class="p-5 sm:p-0 flex flex-wrap justify-between">
+          <!-- card -->
+          <div
+            class="w-full shadow-xl shadow-black rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
+          >
+            <h1 class="font-medium text-lg text-[#0f141e]">
+              Email Everyday
+            </h1>
+            <div class="flex">
+              <p class="text-gray-400 w-3/4 border-b">
+                This is a straightforward website that sends you  quotes  as email everyday once you've signed up and click start sending. You have the option to stop the email delivery whenever you desire.The current UI experience may not be outstanding, but rest assured, improvements are on the horizon. I have plans to enhance and streamline the design for a cleaner and more user-friendly interface in the near future.           </p>
+              <div class="p-5 flex flex-wrap">
+                <img class="hidden lg:flex w-60 mx-5" src="./email.png" alt="" />
+              </div>
+            </div>
+            <div
+              class="w-full md:w-4/12 rounded-lg p-5 md-10 flex flex-row gap-3"
+            >
+              <img
+                class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+                src="nodejs.png"
+                alt="nodelogo"
+              />
+              <img
+                class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+                src="mongo.png"
+                alt="mongodblogo"
+              />
+              <img
+              class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+              src="express.png"
+              alt="expresslogo"
+            />
+            <img
+            class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+            src="pug.png"
+            alt="puglogo"
+          />
+            </div>
+            <span>
+              <p class="md:hidden text-indigo-600 font-semibold text-sm">Use large screen for demo</p>
+
+              <a class="hidden lg:flex text-indigo-600 font-semibold text-sm" href="https://emaileveryday.onrender.com/"
+                >Live Demo <span class="hidden lg:flex text-gray-400">(Bit slow while loading and not responsive as of now.)</span></a
+              >
+            </span>
+          </div>
+
+          <div
+            class="w-full shadow-xl shadow-black rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
+          >
+            <h1 class="font-medium text-lg dark:text-white">
+             Tour Nepal
+            </h1>
+            <div class="flex">
+              <p class="text-[#787b80]  w-3/4 border-b">This site allow you to discover Nepal's hidden gems.Explore uncharted places with details on pricing, difficulty, guides, and the best times to visit. Simply log in and book your tour. </p>
+              <div class="p-5 flex flex-wrap">
+                <img class="hidden lg:flex w-60 mx-5" src="./Tour.png" alt="" />
+              </div>
+            </div>
+            <div
+              class="w-full md:w-4/12 rounded-lg p-5 md-10 flex flex-row gap-3"
+            >
+            <img
+            class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+            src="nodejs.png"
+            alt="nodelogo"
+          />
+          <img
+            class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+            src="mongo.png"
+            alt="mongodblogo"
+          />
+          <img
+          class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+          src="express.png"
+          alt="expresslogo"
+        />
+        <img
+        class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+        src="pug.png"
+        alt="puglogo"
+      />
+            </div>
+          <span>
+              <p class="md:hidden text-indigo-600 font-semibold text-sm">Use large screen for demo</p>
+              <a class="hidden lg:flex  text-indigo-600 font-semibold text-sm" href="https://visitus.onrender.com
+
+              "
+              >Live Demo <span class="hidden lg:flex  text-[#787b80] ">(Bit slow while loading and not responsive as of now.)</span></a
+              >
+            </span>
+          </div>
+
+          <div
+            class="w-full shadow-xl shadow-black rounded-lg p-5 my-3 md:my-10 flex flex-col gap-3"
+          >
+            <h1 class="font-medium text-lg dark:text-white">
+              Automated Attendance Using CNN
+            </h1>
+            <div class="flex">
+              <p class="text-[#787b80] w-3/4 border-b">This web application allow you to register your attendance once you step into the camera's view.It also allow you to download the attendance once your attendace is registerd.</p>
+              <div class="p-5 flex flex-wrap">
+                <img class="hidden lg:flex w-60 mx-5" src="./attendance.png" alt="" />
+              </div>
+            </div>
+            <div
+              class="w-full md:w-4/12 rounded-lg p-5 md-10 flex flex-row gap-3"
+            >
+              <img
+                class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+                src="pytorch.png"
+                alt=""
+              />
+              <img
+                class="w-10 cursor-pointer hover:opacity-80 rounded-full"
+                src="tkinter.png"
+                alt=""
+              />
+            </div>
+            <span>
+              <a class="text-indigo-600  font-semibold text-sm" href="https://github.com/siddhartha1010/Automated_Attendance_Using_MTCNN.git"
+                >Learn More</a
+              >
+            </span>
+          </div>
+
+         
+        </div>
+      </div>
+      <div class="border-b py-10"></div>
+    </div>
+    <!-- project sakyo -->
+
+
+<!-- contact ko barema -->
+    <div id="form" class="dark:bg-slate-900">
+      <div class="container mx-auto">
+        <!-- top -->
+        <div class="flex flex-col gap-1 items-center">
+          <h1 class="font-bold text-[#0f141e] text-2xl">CONTACT</h1>
+          <h1 class="text-xl text-[#0f141e]">Have a Question?</h1>
+          <p class="w-1/2 text-center text-[#787b80]">
+            Do you have an idea?Ready to collaborate and bring unique
+            perspectives to your project. Let's turn ideas into impactful
+            experiences.
+          </p>
+
+          <div class="flex items-center justify-center dark my-2">
+            <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
+              <h2 class="text-2xl font-bold text-gray-200 mb-4">Contact Me</h2>
+
+              <form action="#" class="flex flex-wrap">
+                <input
+                  id="fullName"
+                  type="text"
+                  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
+                  placeholder="Full Name"
+                />
+                <input
+                  id="email"
+                  type="text"
+                  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
+                  placeholder="email"
+                />
+
+                <input
+                  id="Phone"
+                  type="number"
+                  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
+                  placeholder="Phone Number"
+                />
+
+                <input
+                  id="Date"
+                  type="date"
+                  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] ml-[2%]"
+                  placeholder="Date of Birth"
+                />
+                <textarea
+                  id="message"
+                  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-auto md:mb-auto md:w-full md:h-auto md:min-h-[100px] md:max-h-[100px] md:flex-grow md:flex-shrink md:flex-auto focus:bg-gray-md:focus:outline-none:focus:ring-blue-md:focus:border-transparent transition ease-in-out duration-fastest"
+                  placeholder="Message"
+                ></textarea>
+
+                <button
+                  type="submit"
+                  class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+          <p>Let's Connect across social Media</p>
+
+          <div class="flex py-3">
+            <section class="flex justify-center items-center px-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61557282170381"
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl from-gray-800 bg-[#316FF6] text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1.1em"
+                  viewBox="0 0 448 512"
+                  stroke-width="0"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  class="w-5"
+                >
+                  <path
+                    d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  Facebook
+                </span>
+              </a>
+            </section>
+
+            <section class="flex justify-center items-center px-2">
+              <a
+                href="https://www.linkedin.com/in/siddhartharaut
+                "
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#0077b5] from-gray-800 text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1.1em"
+                  viewBox="0 0 512 512"
+                  stroke-width="0"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  Linkedin
+                </span>
+              </a>
+            </section>
+
+            <section class="flex justify-center items-center px-2">
+              <a
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                href="https://github.com/siddhartha1010"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 15 15"
+                  class="w-5"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                    fill="currentColor"
+                    d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  GitHub
+                </span>
+              </a>
+            </section>
+
+            <section class="flex justify-center items-center px-2">
+              <a
+                href="https://twitter.com/SiddharthaRaut9"
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  stroke-width="0"
+                  fill="currentColor"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M8 2H1L9.26086 13.0145L1.44995 21.9999H4.09998L10.4883 14.651L16 22H23L14.3917 10.5223L21.8001 2H19.1501L13.1643 8.88578L8 2ZM17 20L5 4H7L19 20H17Z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  x
+                </span>
+              </a>
+            </section>
+          </div>
+          <p>Contact Details:</p>
+          <div class="flex flex-wrap">
+
+            <a class="mx-4 hover:text-red-500 cursor-all-scroll" href="javascript:void(0)"
+              ><i class="fa-solid fa-phone"></i> 9813496547</a
+            >
+            <a class="mx-4 hover:text-red-500 cursor-all-scroll" href="javascript:void(0)"
+              ><i class="fa-solid fa-envelope"></i>
+              siddhartharaut1234@gmail.com</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact form sakyo ya bata -->
+
+    <div class="my-10"></div>
+    <div class="bg-black h-40 w-full flex items-center justify-center">
+      <div class="text-white">Made in Kathmandu, Nepal.</div>
+      <div class="text-white">Copyright © 2024. All rights are reserved</div>
+    </div>
+    <!-- footer ko lagi ho yo -->
+  </body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="script.js"></script>
+</html>
+
+
+<!-- npx tailwindcss -i ./dist/script.css -o ./src/input.css --watch -->
+<!-- npx tailwindcss -i ./style.css -o ./src/input.css --watch -->
